@@ -1,1 +1,598 @@
-Test
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A simple example</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"
+    ></script>
+    <style>
+      #panorama {
+        width: 3200px;
+        height: 800px;
+        max-width: 100%;
+        max-height: 100vh;
+      }
+      div.pnlm-tooltip span {
+        max-width: inherit;
+      }
+      .customInfoIcon {
+        background-image: none;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="panorama"></div>
+    <p>Text</p>
+    <script>
+      pannellum.viewer("panorama", {
+        default: {
+          firstScene: "_2_Eingang_Treppenhaus",
+          // "author": "Matthew Petroff",
+          sceneFadeDuration: 1000,
+          autoLoad: true,
+        },
+
+        scenes: {
+          _2_Eingang_Treppenhaus: {
+            title: "Eingang Treppenhaus",
+            hfov: 110,
+            pitch: 0,
+            yaw: 0,
+            compass: true,
+            type: "equirectangular",
+            panorama: "./2_Eingang_Treppenhaus1.jpg",
+            multiRes: {
+              fallbackPath: "/fallback/%s",
+              extension: "jpg",
+              tileResolution: 512,
+              maxLevel: 6,
+              cubeResolution: 8432,
+            },
+
+            hotSpots: [
+              {
+                pitch: 2,
+                yaw: 3,
+                type: "scene",
+                sceneId: "_3_Aula_III",
+              },
+              {
+                pitch: 20,
+                yaw: -90,
+                type: "info",
+                cssClass: "customInfoIcon",
+                text:
+                  '<div>Die neue Schule<video width="400px" autoplay controls src="_1.mp4"></video></div>',
+              },
+            ],
+          },
+
+          _3_Aula_III: {
+            title: "Eingang Treppenhaus",
+            hfov: 110,
+            pitch: 0,
+            yaw: 0,
+            compass: true,
+            type: "equirectangular",
+            panorama: "./3_Aula_III3.jpg",
+            multiRes: {
+              fallbackPath: "/fallback/%s",
+              extension: "jpg",
+              tileResolution: 512,
+              maxLevel: 6,
+              cubeResolution: 8432,
+            },
+
+            hotSpots: [
+              {
+                pitch: -2,
+                yaw: -140,
+                type: "scene",
+                sceneId: "_2_Eingang_Treppenhaus",
+              },
+              {
+                pitch: 3,
+                yaw: 10,
+
+                type: "info",
+                cssClass: "customInfoIcon",
+                text:
+                  '<div>Naturwissenschaften<video width="400px" controls src="_2.mp4"></video></div>',
+              },
+              {
+                pitch: -7,
+                yaw: 105,
+                type: "info",
+                cssClass: "customInfoIcon",
+                text:
+                  '<div>Miteinander<video width="400px" controls src="_2.1.mp4"></video></div>',
+              },
+            ],
+          },
+          // entrance2: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./entrance2.jpg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: -150,
+          //       type: "scene",
+          //       sceneId: "entrance",
+          //     },
+          //     {
+          //       pitch: -5,
+          //       yaw: 7,
+          //       type: "scene",
+          //       sceneId: "library",
+          //     },
+          //   ],
+          // },
+          // yard1: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./yard1.jpg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 100,
+          //       type: "scene",
+          //       sceneId: "out_play",
+          //     },
+          //     {
+          //       pitch: 5,
+          //       yaw: -140,
+          //       type: "scene",
+          //       sceneId: "entrance",
+          //     },
+          //   ],
+          // },
+          // out_play: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./out_play.jpg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: -180,
+          //       type: "scene",
+          //       sceneId: "yard1",
+          //     },
+          //   ],
+          // },
+          // library: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: -5,
+          //   yaw: -80,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./imageonline-co-overlayed-image.png",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: 4,
+          //       yaw: -102,
+          //       type: "info",
+          //       cssClass: "customInfoIcon",
+          //       text:
+          //         '<div>Eagle<video width="400px" controls src="eagle.mp4"></video></div>',
+          //     },
+          //     {
+          //       pitch: -5,
+          //       yaw: 36,
+          //       type: "scene",
+          //       sceneId: "entrance2",
+          //     },
+          // {
+          //   pitch: -5,
+          //   yaw: 7,
+          //   type: "scene",
+          //   sceneId: "_Eingang_Treppenhaus",
+          // },
+          // ],
+          // },
+          // ..................................................
+          // _Eingang_Treppenhaus: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./2_Eingang_Treppenhaus.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpeg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "library",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "library",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 3_Aula_III.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./3_Aula_III.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 4_Cafeteria.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./4_Cafeteria.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 5_Erdkunderaum.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./5_Erdkunderaum.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 6_Chemieraum.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./6_Chemieraum.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 7_MMLZ.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./7_MMLZ.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 8_Musikraum.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./8_Musikraum.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          // 9_Bibliothek_I.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./9_Bibliothek_I.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          //10_Spinne_II.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./10_Spinne_II.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          //  11_Bolzplatz_I.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./11_Bolzplatz_I.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+
+          // .................................................
+          //  12_Spielplatz_II.jpeg: {
+          //   title: "Elisabethschule Marburg",
+          //   hfov: 110,
+          //   pitch: 0,
+          //   yaw: 0,
+          //   compass: true,
+          //   type: "equirectangular",
+          //   panorama: "./12_Spielplatz_II.jpeg",
+          //   multiRes: {
+          //     fallbackPath: "/fallback/%s",
+          //     extension: "jpg",
+          //     tileResolution: 512,
+          //     maxLevel: 6,
+          //     cubeResolution: 8432,
+          //   },
+          //   hotSpots: [
+          //     {
+          //       pitch: -5,
+          //       yaw: 120,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //     {
+          //       pitch: 2,
+          //       yaw: -14,
+          //       type: "scene",
+          //       sceneId: "...enter screen name",
+          //     },
+          //   ],
+          // },
+        },
+      });
+    </script>
+  </body>
+</html>
